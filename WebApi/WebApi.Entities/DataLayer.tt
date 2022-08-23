@@ -1,0 +1,56 @@
+﻿<#@ include file ="EntityLite.ttinclude\EntityLite.ttinclude" #>
+<#
+	var generation = new DataLayerGeneration
+	{
+		ProviderName = "System.Data.SqlClient",
+		ConnectionStringName= "Insurances",
+		ConnectionString = @"Data Source=SQL17;Integrated Security=SSPI;Initial Catalog=JnJInsurance",
+		DataServiceName = "InsurancesDataService",
+		DefaultSchema = "dbo",
+		RootNamespace = "WebApi.Entities",
+		GenerateAsyncMethods = true,
+		ImplementINotifyPropertyChanged = false,
+		GenerateTypeScript = false,
+		EntityTypesTableName = "entity_types",
+		EntityTypeNameColumnName = "entity_type_name",
+		GenerateEntityTypeId = false,
+		GenerateMessagePackAttributes = false,
+		GenerateKeyClasses = false,
+		EntityNameToEntityViewTransform = TextTransform.ToUnderscoreLowerCaseNamingConvention,
+		AuditDateTimeKind = DateTimeKind.Utc,
+		JsonType = JsonType.JToken,
+		GenerateProjectionColumnLists = true,
+		EntitySettings = new List<EntitySetting>
+		{
+			new EntitySetting 
+			{
+                EntityName = "User", 
+				BaseTableName = "users"
+			},
+			new EntitySetting
+			{
+				EntityName = "UserProperties",
+				BaseTableName = "user_properties"
+			},
+			new EntitySetting
+			{
+				EntityName = "UserPasswordHistory",
+				BaseTableName = "user_password_history"
+			},
+			new EntitySetting
+			{
+				EntityName = "MasterData",
+				BaseTableName = "master_data"
+			}
+		},
+		ProcedureSettings = new List<ProcedureSetting>
+		{
+			
+		},
+		EnumSettings = new List<EnumSetting>
+		{
+			
+		},
+	};
+	Render(generation);
+#>
