@@ -5,5 +5,10 @@
   "LANGUAGES": {
     "EN": "English",
     "ES": "Castellano"
-  }
+  },
+  "HEADER": {
+    "LOGOUT": "Logout",
+    "ADMINISTRATION": "Administration"
+  },
+  "TEST": "TEST"
 }

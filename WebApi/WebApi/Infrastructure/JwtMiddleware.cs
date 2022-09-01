@@ -3,7 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using WebApi.Services;
 
-namespace WebApi.Helpers
+namespace WebApi.Infrastructure
 {
     public class JwtMiddleware
     {
@@ -21,12 +21,12 @@ namespace WebApi.Helpers
             var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
             if (token != null)
-                attachUserToContext(context, userService, token);
+                await AttachUserToContextAsync(context, userService, token);
 
             await _next(context);
         }
 
-        private void attachUserToContext(HttpContext context, IUserService userService, string token)
+        private async Task AttachUserToContextAsync(HttpContext context, IUserService userService, string token)
         {
             try
             {
@@ -46,12 +46,14 @@ namespace WebApi.Helpers
                 var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
 
                 // attach user to context on successful jwt validation
-                context.Items["User"] = userService.GetById(userId);
+                context.Items["CurrentUser"] = await userService.GetByIdAsync(userId);
+                userService.SetCurrentUserId(userId);
             }
             catch
             {
                 // do nothing if jwt validation fails
                 // user is not attached to context so request won't have access to secure routes
+                
             }
         }
     }

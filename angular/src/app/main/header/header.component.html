@@ -1,11 +1,18 @@
-<p>header works!</p>
-<ul *ngFor="let language of languages">
-  <li>{{ 'LANGUAGES.' + language | translate }}</li>
-</ul>
+<div *ngIf="currentUser">
+  {{currentUser.userName}}
+  <p-button (onClick)="logout()">{{ 'HEADER.LOGOUT' | translate }}</p-button>
+  <a routerLink="">Home</a>
 
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-  <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a>
-      <a class="nav-item nav-link" (click)="logout()">Logout</a>
-  </div>
-</nav>
+  <!-- <ul *ngFor="let language of languages">
+    <li>{{ 'LANGUAGES.' + language | translate }}</li>
+  </ul> -->
+
+  <!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+  </nav> -->
+
+  <p-menubar [model]="items"></p-menubar>
+</div>

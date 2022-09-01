@@ -9,7 +9,7 @@ namespace WebApi.Helpers
     {
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var user = (User?)context.HttpContext.Items["User"];
+            var user = context.HttpContext.Items["CurrentUser"] as User;
             if (user == null)
             {
                 // not logged in

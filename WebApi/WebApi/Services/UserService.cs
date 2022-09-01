@@ -13,8 +13,9 @@ namespace WebApi.Services
 {
     public interface IUserService
     {
-        Task<AuthenticateResponse> Authenticate(AuthenticateRequest model);
-        Task<User> GetById(int id);
+        Task<AuthenticateResponse?> Authenticate(AuthenticateRequest model);
+        Task<User> GetByIdAsync(int id);
+        void SetCurrentUserId(int userId);
     }
 
     public class UserService: IUserService
@@ -29,7 +30,7 @@ namespace WebApi.Services
             _userPasswordService = userPasswordService;
         }
 
-        public async Task<AuthenticateResponse> Authenticate(AuthenticateRequest model)
+        public async Task<AuthenticateResponse?> Authenticate(AuthenticateRequest model)
         {
             var userProperty = await this._dataService.UserPropertiesRepository.Query(Projection.Basic)
                 .Where(nameof(UserProperties.LoginName), model.LoginName)
@@ -57,7 +58,7 @@ namespace WebApi.Services
             return new AuthenticateResponse(user, token);
         }
 
-        public async Task<User> GetById(int id)
+        public async Task<User> GetByIdAsync(int id)
         {
             return await this._dataService.UserRepository.Query(Projection.BaseTable)
                 .GetAsync(nameof(User.UserId), id);
@@ -76,6 +77,11 @@ namespace WebApi.Services
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
+        }
+
+        public void SetCurrentUserId(int userId)
+        {
+            this._dataService.CurrentUserId = userId;
         }
     }
 }

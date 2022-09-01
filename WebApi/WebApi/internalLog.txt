@@ -1,0 +1,188 @@
+2022-08-30 14:13:09.9849 Info Message Template Auto Format enabled
+2022-08-30 14:13:09.9978 Info Loading assembly: NLog.MailKit
+2022-08-30 14:13:10.0132 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error loading extensions: NLog.MailKit
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'NLog.MailKit, Culture=neutral, PublicKeyToken=null'. El sistema no puede encontrar el archivo especificado.
+File name: 'NLog.MailKit, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.InternalLoad(ObjectHandleOnStack assemblyName, ObjectHandleOnStack requestingAssembly, StackCrawlMarkHandle stackMark, Boolean throwOnFileNotFound, ObjectHandleOnStack assemblyLoadContext, ObjectHandleOnStack retAssembly)
+   at System.Reflection.RuntimeAssembly.InternalLoad(AssemblyName assemblyName, RuntimeAssembly requestingAssembly, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, AssemblyLoadContext assemblyLoadContext)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NLog.Internal.AssemblyHelpers.LoadFromName(String assemblyName)
+   at NLog.Config.LoggingConfigurationParser.ParseExtensionWithAssembly(String assemblyName, String prefix)
+   --- End of inner exception stack trace ---
+2022-08-30 14:13:10.1728 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 14:13:10.1863 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 14:13:10.1863 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'MailTarget' cannot assign unknown property 'secureSocketOption'='StartTls'
+   at NLog.Internal.PropertyHelper.SetPropertyFromString(Object targetObject, String propertyName, String stringValue, ConfigurationItemFactory configurationItemFactory)
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString(Object targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2022-08-30 14:13:10.2018 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 14:13:10.2345 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=93, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:19:09.5511 Info Message Template Auto Format enabled
+2022-08-30 14:19:09.5699 Info Loading assembly: NLog.MailKit
+2022-08-30 14:19:09.5942 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error loading extensions: NLog.MailKit
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'NLog.MailKit, Culture=neutral, PublicKeyToken=null'. El sistema no puede encontrar el archivo especificado.
+File name: 'NLog.MailKit, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.InternalLoad(ObjectHandleOnStack assemblyName, ObjectHandleOnStack requestingAssembly, StackCrawlMarkHandle stackMark, Boolean throwOnFileNotFound, ObjectHandleOnStack assemblyLoadContext, ObjectHandleOnStack retAssembly)
+   at System.Reflection.RuntimeAssembly.InternalLoad(AssemblyName assemblyName, RuntimeAssembly requestingAssembly, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, AssemblyLoadContext assemblyLoadContext)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NLog.Internal.AssemblyHelpers.LoadFromName(String assemblyName)
+   at NLog.Config.LoggingConfigurationParser.ParseExtensionWithAssembly(String assemblyName, String prefix)
+   --- End of inner exception stack trace ---
+2022-08-30 14:19:09.9036 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 14:19:09.9273 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 14:19:09.9323 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'MailTarget' cannot assign unknown property 'secureSocketOption'='StartTls'
+   at NLog.Internal.PropertyHelper.SetPropertyFromString(Object targetObject, String propertyName, String stringValue, ConfigurationItemFactory configurationItemFactory)
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString(Object targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2022-08-30 14:19:09.9575 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 14:19:10.0085 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=93, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:19:10.5019 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=93, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:19:41.2917 Error MailTarget(Name=Mail_wrapped): Error sending mail. Exception: System.Net.Mail.SmtpException: Error in processing. The server response was: 5.7.3 STARTTLS is required to send mail [PR3P189CA0071.EURP189.PROD.OUTLOOK.COM]
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at NLog.Targets.MailTarget.ProcessSingleMailMessage(IEnumerable`1 events)
+2022-08-30 14:22:35.4129 Error MailTarget(Name=Mail_wrapped): Error sending mail. Exception: System.Net.Mail.SmtpException: Error in processing. The server response was: 5.7.3 STARTTLS is required to send mail [PR0P264CA0161.FRAP264.PROD.OUTLOOK.COM]
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, MailAddress from, Boolean allowUnicode)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, Boolean allowUnicode, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at NLog.Targets.MailTarget.ProcessSingleMailMessage(IEnumerable`1 events)
+2022-08-30 14:25:32.2231 Info Message Template Auto Format enabled
+2022-08-30 14:25:32.2383 Info Loading assembly: NLog.MailKit
+2022-08-30 14:25:32.4112 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 14:25:32.4310 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 14:25:32.5763 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 14:25:32.6134 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:25:33.0697 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:26:19.4791 Info Message Template Auto Format enabled
+2022-08-30 14:26:19.4930 Info Loading assembly: NLog.MailKit
+2022-08-30 14:26:19.6331 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 14:26:19.6486 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 14:26:19.6812 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 14:26:19.7202 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:26:20.2055 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:27:07.9720 Info AppDomain Shutting down. LogFactory closing...
+2022-08-30 14:27:08.4891 Info LogFactory has been closed.
+2022-08-30 14:27:12.3702 Info Message Template Auto Format enabled
+2022-08-30 14:27:12.3702 Info Loading assembly: NLog.MailKit
+2022-08-30 14:27:12.5203 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 14:27:12.5345 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 14:27:12.5612 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 14:27:12.5977 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:27:13.1077 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:34:44.9100 Info Message Template Auto Format enabled
+2022-08-30 14:34:44.9236 Info Loading assembly: NLog.MailKit
+2022-08-30 14:34:45.0461 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 14:34:45.0594 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 14:34:45.0683 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 14:34:45.1179 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:34:45.5102 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:36:29.6330 Info Message Template Auto Format enabled
+2022-08-30 14:36:29.6489 Info Loading assembly: NLog.MailKit
+2022-08-30 14:36:29.7839 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 14:36:29.7969 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 14:36:29.8217 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 14:36:29.8559 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:36:30.3338 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:38:40.1772 Info Message Template Auto Format enabled
+2022-08-30 14:38:40.1904 Info Loading assembly: NLog.MailKit
+2022-08-30 14:38:40.3129 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 14:38:40.3263 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 14:38:40.3495 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 14:38:40.3844 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:38:40.8267 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:40:30.6214 Info Message Template Auto Format enabled
+2022-08-30 14:40:30.6357 Info Loading assembly: NLog.MailKit
+2022-08-30 14:40:30.7741 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 14:40:30.7940 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 14:40:30.8241 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 14:40:30.8629 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:40:31.3004 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:40:45.5207 Info Message Template Auto Format enabled
+2022-08-30 14:40:45.5313 Info Loading assembly: NLog.MailKit
+2022-08-30 14:40:45.6511 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 14:40:45.6676 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 14:40:45.6909 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 14:40:45.7279 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:40:46.1364 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:40:53.5469 Info Message Template Auto Format enabled
+2022-08-30 14:40:53.5584 Info Loading assembly: NLog.MailKit
+2022-08-30 14:40:53.6951 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 14:40:53.7100 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 14:40:53.7355 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 14:40:53.7736 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:40:54.2772 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:51:33.2073 Info Message Template Auto Format enabled
+2022-08-30 14:51:33.2207 Info Loading assembly: NLog.MailKit
+2022-08-30 14:51:33.3953 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 14:51:33.4103 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 14:51:33.4360 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 14:51:33.4733 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:51:33.9317 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:51:52.3926 Info Message Template Auto Format enabled
+2022-08-30 14:51:52.3926 Info Loading assembly: NLog.MailKit
+2022-08-30 14:51:52.5234 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 14:51:52.5360 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 14:51:52.5577 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 14:51:52.5891 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:51:52.9709 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:59:46.6379 Info Message Template Auto Format enabled
+2022-08-30 14:59:46.6521 Info Loading assembly: NLog.MailKit
+2022-08-30 14:59:46.7797 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 14:59:46.7956 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 14:59:46.8225 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 14:59:46.8533 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 14:59:47.3463 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 15:02:50.5096 Info Shutdown() called. Logger closing...
+2022-08-30 15:02:50.5096 Info Closing old configuration.
+2022-08-30 15:02:50.5261 Info Logger has been closed down.
+2022-08-30 15:02:55.0126 Info Message Template Auto Format enabled
+2022-08-30 15:02:55.0239 Info Loading assembly: NLog.MailKit
+2022-08-30 15:02:55.1447 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-30 15:02:55.1603 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-30 15:02:55.1823 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-30 15:02:55.2146 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-30 15:02:55.6063 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-31 12:06:26.1418 Info Message Template Auto Format enabled
+2022-08-31 12:06:26.1950 Info Loading assembly: NLog.MailKit
+2022-08-31 12:06:26.4544 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-31 12:06:26.4650 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-31 12:06:26.6032 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-31 12:06:26.6787 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-31 12:06:26.7894 Info FileTarget(Name=File_wrapped): Archiving C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\Logs\WebApi.csv to C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\Logs\WebApi_0.csv
+2022-08-31 12:06:28.2002 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-31 13:15:00.8651 Info Message Template Auto Format enabled
+2022-08-31 13:15:00.8927 Info Loading assembly: NLog.MailKit
+2022-08-31 13:15:01.0601 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-31 13:15:01.0835 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-31 13:15:01.1172 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-31 13:15:01.1566 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-31 13:15:01.7796 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-31 13:42:08.2847 Info Message Template Auto Format enabled
+2022-08-31 13:42:08.3133 Info Loading assembly: NLog.MailKit
+2022-08-31 13:42:08.5340 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-31 13:42:08.5499 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-31 13:42:08.5925 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-31 13:42:08.6316 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-31 13:42:09.4999 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-31 13:59:20.7648 Info Message Template Auto Format enabled
+2022-08-31 13:59:20.7783 Info Loading assembly: NLog.MailKit
+2022-08-31 13:59:20.9111 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-31 13:59:20.9241 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-31 13:59:20.9471 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-31 13:59:20.9834 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-31 13:59:21.4975 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-31 14:01:27.0369 Info Message Template Auto Format enabled
+2022-08-31 14:01:27.0519 Info Loading assembly: NLog.MailKit
+2022-08-31 14:01:27.1888 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-31 14:01:27.2015 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-31 14:01:27.2264 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-31 14:01:27.2599 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-31 14:01:27.7414 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-31 14:51:05.0005 Info Message Template Auto Format enabled
+2022-08-31 14:51:05.0176 Info Loading assembly: NLog.MailKit
+2022-08-31 14:51:05.1530 Info Adding target AsyncTargetWrapper(Name=File)
+2022-08-31 14:51:05.1673 Info Adding target AsyncTargetWrapper(Name=coloredConsole)
+2022-08-31 14:51:05.1841 Info Adding target AsyncTargetWrapper(Name=Mail)
+2022-08-31 14:51:05.2188 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config
+2022-08-31 14:51:05.3396 Info Validating config: TargetNames=coloredConsole, File, Mail, ConfigItems=97, FilePath=C:\Projects\inercya-internal\angular14-netcore6-template\WebApi\WebApi\bin\Debug\net6.0\NLog.config

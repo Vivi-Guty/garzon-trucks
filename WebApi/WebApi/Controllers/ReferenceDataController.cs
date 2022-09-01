@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
+    [ApiController]
     public class ReferenceDataController : BaseController
     {
         [HttpGet]

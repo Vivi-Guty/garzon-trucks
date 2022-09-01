@@ -6,13 +6,23 @@ using WebApi.Services;
 
 namespace WebApi.Controllers
 {
+    [ApiController]
     public class UsersController : BaseController
     {
         private IUserService _userService;
+        private readonly ILogger<UsersController> _logger;
 
-        public UsersController(IUserService userService)
+        public UsersController(IUserService userService, ILogger<UsersController> logger)
         {
             _userService = userService;
+            _logger = logger;
+            _logger.LogDebug("NLog injected into UsersController");
+        }
+
+        [HttpGet("api/users/me")]
+        public IActionResult Me()
+        {
+            return Json(this.CurrentUser);
         }
 
         [HttpPost("api/users/authenticate")]
@@ -26,12 +36,14 @@ namespace WebApi.Controllers
             return Ok(response);
         }
 
-        [Authorize]
+        [Helpers.Authorize]
         [HttpGet]
         [Route("api/users/get-all")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var users = this.DataService.UserRepository.Query(Projection.BaseTable).ToListAsync();
+            var currentUser = this.CurrentUser;
+            var users = await this.DataService.UserRepository.Query(Projection.BaseTable).ToListAsync();
+            _logger.LogInformation("GetAll method with {0} users", users.Count);
             return Ok(users);
         }
     }

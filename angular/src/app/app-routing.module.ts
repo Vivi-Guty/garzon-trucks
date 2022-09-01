@@ -7,7 +7,9 @@ import { LayoutComponent } from './main/layout/layout.component';
 const routes: Routes = [
   { path: '', component: LayoutComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-
+  { path: 'admin', canActivate: [AuthGuard],
+    loadChildren: () => import('../app/admin/admin.module').then(m => m.AdminModule)
+  },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];

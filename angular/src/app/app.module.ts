@@ -5,7 +5,13 @@ import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ng
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+import { ButtonModule } from 'primeng/button';
+import { MenubarModule } from 'primeng/menubar';
 import { CustomizedMissingTranslationHandler } from 'src/shared-services/missing-translation-handler';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import { AdminComponent } from './admin/admin.component';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -26,12 +33,19 @@ export function createTranslateLoader(http: HttpClient) {
     AppComponent,
     HeaderComponent,
     LayoutComponent,
-    LoginComponent
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ToastModule,
+    CardModule,
+    InputTextModule,
+    PasswordModule,
+    ButtonModule,
+    MenubarModule,
     HttpClientModule,
     FormsModule,
     TranslateModule.forRoot({

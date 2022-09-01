@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { User } from 'src/app/models/User';
 import { AuthenticationService } from 'src/shared-services/authentication.service';
 
@@ -12,10 +13,15 @@ export class LayoutComponent implements OnInit {
   loading = false;
   users: User[] = [];
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService, private messageService: MessageService) { }
 
-  async ngOnInit() {
-    this.users = await this.authenticationService.getAll();
+  ngOnInit() {
+    this.authenticationService.getAll().then(response => {
+      this.users = response;
+    }).catch(error => {
+      console.error(error);
+      this.messageService.add({severity: 'error', summary: error.statusText, detail: error.error});
+    });
   }
 
 }
