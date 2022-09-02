@@ -21,7 +21,6 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
-import { AdminComponent } from './admin/admin.component';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -33,8 +32,7 @@ export function createTranslateLoader(http: HttpClient) {
     AppComponent,
     HeaderComponent,
     LayoutComponent,
-    LoginComponent,
-    AdminComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,

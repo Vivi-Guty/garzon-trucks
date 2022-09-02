@@ -1,7 +1,8 @@
-admin works
-
-<ul>
-  <li><a routerLink="users">Usuarios</a></li>
-  <li><a routerLink="customers">Clientes</a></li>
-</ul>
-<router-outlet></router-outlet>
+<div class="admin-page">
+  <div class="menu-container">
+    <p-menu [model]="items"></p-menu>
+  </div>
+  <div class="content-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
