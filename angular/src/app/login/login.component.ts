@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
     }
 
   ngOnInit(): void {
-
+    this.loginName = "carlos.gomez";
+    this.password = "neo#jnj#123$";
   }
 
   async onSubmit() {

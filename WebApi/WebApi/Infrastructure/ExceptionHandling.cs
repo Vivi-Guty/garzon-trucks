@@ -31,10 +31,12 @@ namespace WebApi.Infrastructure
 
             if (jwtException != null)
             {
-
+                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                problemDetails = UnauthorizedModel.Unauthenticated;
+                logger.LogWarning(error, "Unauthenticated request, {TraceIdentifier}", context.TraceIdentifier);
             }
 
-            if (authorizationException == null)
+            else if (authorizationException == null)
             {
                 logger.LogError(error, "Unhandled Exception, {TraceIdentifier}", context.TraceIdentifier);
                 context.Response.StatusCode = StatusCodes.Status500InternalServerError;

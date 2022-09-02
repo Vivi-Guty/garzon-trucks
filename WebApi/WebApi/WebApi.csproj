@@ -4,10 +4,12 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>eeb40935-ba26-4a2c-919e-34f57723e65e</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.8" />
     <PackageReference Include="NLog" Version="5.0.2" />
     <PackageReference Include="NLog.MailKit" Version="5.0.0" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="5.1.1" />

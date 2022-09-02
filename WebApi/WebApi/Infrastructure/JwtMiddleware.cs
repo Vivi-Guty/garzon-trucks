@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using WebApi.Services;
 
@@ -48,6 +49,14 @@ namespace WebApi.Infrastructure
                 // attach user to context on successful jwt validation
                 context.Items["CurrentUser"] = await userService.GetByIdAsync(userId);
                 userService.SetCurrentUserId(userId);
+
+                var identity = new ClaimsIdentity(new List<Claim>
+                {
+                    new Claim("UserId", userId.ToString(), ClaimValueTypes.Integer32)
+                }, "Custom");
+                context.User = new ClaimsPrincipal(identity);
+
+
             }
             catch
             {

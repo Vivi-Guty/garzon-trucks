@@ -41,6 +41,16 @@
 			{
 				EntityName = "MasterData",
 				BaseTableName = "master_data"
+			},
+			new EntitySetting
+			{
+				EntityName = "Role",
+				BaseTableName = "roles"
+			},
+			new EntitySetting
+			{
+				EntityName = "UserRole",
+				BaseTableName = "user_roles"
 			}
 		},
 		ProcedureSettings = new List<ProcedureSetting>
@@ -49,7 +59,12 @@
 		},
 		EnumSettings = new List<EnumSetting>
 		{
-			
+			new EnumSetting
+			{
+				BaseTableName = "roles",
+				IdField = "role_id",
+				NameField = "role_name"
+			}
 		},
 	};
 	Render(generation);

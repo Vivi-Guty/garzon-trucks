@@ -654,10 +654,10 @@ namespace WebApi.Entities
 			}
         }
 
-		private Int32 _roleId;
+		private RoleId _roleId;
 		[DataMember]
 		[SqlField(DbType.Int32, 4, Precision = 10, IsKey=true, ColumnName ="role_id" )]		
-		public Int32 RoleId 
+		public RoleId RoleId 
 		{ 
 		    get { return _roleId; } 
 			set 
@@ -707,7 +707,6 @@ namespace WebApi.Entities
 		public const string ExtendedProjectionColumnList = "[user_name], [user_id], [is_active], [login_name], [user_email], [user_password_expiration_date], [created_date], [modified_date], [role_description], [wi_user_name]";
 		public const string MinimalProjectionColumnList = "[user_id], [login_name], [user_name], [user_email], [is_active], [user_password_expiration_date], [user_login_attemps], [created_date], [created_by], [modified_date], [modified_by]";
 		public const string PermissionBasicProjectionColumnList = "[user_id], [role_id], [permission_id], [permission_name], [role_name], [role_description]";
-		public const string RoleBasicProjectionColumnList = "[user_id], [role_id], [role_name], [role_description], [user_name], [is_active]";
 
 	}
 
@@ -866,7 +865,6 @@ namespace WebApi.Entities
 		public const string Extended = "Extended";
 		public const string Minimal = "Minimal";
 		public const string PermissionBasic = "PermissionBasic";
-		public const string RoleBasic = "RoleBasic";
 	}
 	[Serializable]
 	[DataContract]
@@ -1652,6 +1650,279 @@ namespace WebApi.Entities
 		public const string BaseTable = "BaseTable";
 		public const string Basic = "Basic";
 	}
+	[Serializable]
+	[DataContract]
+	[SqlEntity(BaseTableName="roles")]
+	public partial class Role
+	{
+		private RoleId _roleId;
+		[DataMember]
+		[SqlField(DbType.Int32, 4, Precision = 10, IsKey=true, ColumnName ="role_id", BaseColumnName ="role_id", BaseTableName = "roles" )]		
+		public RoleId RoleId 
+		{ 
+		    get { return _roleId; } 
+			set 
+			{
+			    _roleId = value;
+			}
+        }
+
+		private String _roleName;
+		[DataMember]
+		[SqlField(DbType.AnsiString, 128, ColumnName ="role_name", BaseColumnName ="role_name", BaseTableName = "roles" )]		
+		public String RoleName 
+		{ 
+		    get { return _roleName; } 
+			set 
+			{
+			    _roleName = value;
+			}
+        }
+
+		private String _roleDescription;
+		[DataMember]
+		[SqlField(DbType.AnsiString, 128, ColumnName ="role_description", BaseColumnName ="role_description", BaseTableName = "roles" )]		
+		public String RoleDescription 
+		{ 
+		    get { return _roleDescription; } 
+			set 
+			{
+			    _roleDescription = value;
+			}
+        }
+
+		public const string BaseTableProjectionColumnList = "[role_id], [role_name], [role_description]";
+
+	}
+
+	public partial class RoleRepository : Repository<Role> 
+	{
+		public RoleRepository(DataService DataService) : base(DataService)
+		{
+		}
+
+		public new InsurancesDataService  DataService  
+		{
+			get { return (InsurancesDataService) base.DataService; }
+			set { base.DataService = value; }
+		}
+
+		public Role Get(string projectionName, RoleId roleId)
+		{
+			return ((IRepository<Role>)this).Get(projectionName, roleId, FetchMode.UseIdentityMap);
+		}
+
+		public Role Get(string projectionName, RoleId roleId, FetchMode fetchMode = FetchMode.UseIdentityMap)
+		{
+			return ((IRepository<Role>)this).Get(projectionName, roleId, fetchMode);
+		}
+
+		public Role Get(Projection projection, RoleId roleId)
+		{
+			return ((IRepository<Role>)this).Get(projection, roleId, FetchMode.UseIdentityMap);
+		}
+
+		public Role Get(Projection projection, RoleId roleId, FetchMode fetchMode = FetchMode.UseIdentityMap)
+		{
+			return ((IRepository<Role>)this).Get(projection, roleId, fetchMode);
+		}
+
+		public Role Get(string projectionName, RoleId roleId, params string[] fields)
+		{
+			return ((IRepository<Role>)this).Get(projectionName, roleId, fields);
+		}
+
+		public Role Get(Projection projection, RoleId roleId, params string[] fields)
+		{
+			return ((IRepository<Role>)this).Get(projection, roleId, fields);
+		}
+
+		public bool Delete(RoleId roleId)
+		{
+			var entity = new Role { RoleId = roleId };
+			return this.Delete(entity);
+		}
+
+				// asyncrhonous methods
+
+		public System.Threading.Tasks.Task<Role> GetAsync(string projectionName, RoleId roleId)
+		{
+			return ((IRepository<Role>)this).GetAsync(projectionName, roleId, FetchMode.UseIdentityMap);
+		}
+
+		public System.Threading.Tasks.Task<Role> GetAsync(string projectionName, RoleId roleId, FetchMode fetchMode = FetchMode.UseIdentityMap)
+		{
+			return ((IRepository<Role>)this).GetAsync(projectionName, roleId, fetchMode);
+		}
+
+		public System.Threading.Tasks.Task<Role> GetAsync(Projection projection, RoleId roleId)
+		{
+			return ((IRepository<Role>)this).GetAsync(projection, roleId, FetchMode.UseIdentityMap);
+		}
+
+		public System.Threading.Tasks.Task<Role> GetAsync(Projection projection, RoleId roleId, FetchMode fetchMode = FetchMode.UseIdentityMap)
+		{
+			return ((IRepository<Role>)this).GetAsync(projection, roleId, fetchMode);
+		}
+
+		public System.Threading.Tasks.Task<Role> GetAsync(string projectionName, RoleId roleId, params string[] fields)
+		{
+			return ((IRepository<Role>)this).GetAsync(projectionName, roleId, fields);
+		}
+
+		public System.Threading.Tasks.Task<Role> GetAsync(Projection projection, RoleId roleId, params string[] fields)
+		{
+			return ((IRepository<Role>)this).GetAsync(projection, roleId, fields);
+		}
+
+		public System.Threading.Tasks.Task<bool> DeleteAsync(RoleId roleId)
+		{
+			var entity = new Role { RoleId = roleId };
+			return this.DeleteAsync(entity);
+		}
+			}
+	[Obsolete("Use nameof instead")]
+	public static partial class RoleFields
+	{
+		public const string RoleId = "RoleId";
+		public const string RoleName = "RoleName";
+		public const string RoleDescription = "RoleDescription";
+	}
+
+	public static partial class RoleProjections
+	{
+		public const string BaseTable = "BaseTable";
+	}
+	[Serializable]
+	[DataContract]
+	[SqlEntity(BaseTableName="user_roles")]
+	public partial class UserRole
+	{
+		private Int32 _userId;
+		[DataMember]
+		[SqlField(DbType.Int32, 4, Precision = 10, IsKey=true, ColumnName ="user_id", BaseColumnName ="user_id", BaseTableName = "user_roles" )]		
+		public Int32 UserId 
+		{ 
+		    get { return _userId; } 
+			set 
+			{
+			    _userId = value;
+			}
+        }
+
+		private RoleId _roleId;
+		[DataMember]
+		[SqlField(DbType.Int32, 4, Precision = 10, IsKey=true, ColumnName ="role_id", BaseColumnName ="role_id", BaseTableName = "user_roles" )]		
+		public RoleId RoleId 
+		{ 
+		    get { return _roleId; } 
+			set 
+			{
+			    _roleId = value;
+			}
+        }
+
+		private String _roleName;
+		[DataMember]
+		[SqlField(DbType.AnsiString, 128, ColumnName ="role_name" )]		
+		public String RoleName 
+		{ 
+		    get { return _roleName; } 
+			set 
+			{
+			    _roleName = value;
+			}
+        }
+
+		private String _roleDescription;
+		[DataMember]
+		[SqlField(DbType.AnsiString, 128, ColumnName ="role_description" )]		
+		public String RoleDescription 
+		{ 
+		    get { return _roleDescription; } 
+			set 
+			{
+			    _roleDescription = value;
+			}
+        }
+
+		private String _userName;
+		[DataMember]
+		[SqlField(DbType.AnsiString, 128, ColumnName ="user_name" )]		
+		public String UserName 
+		{ 
+		    get { return _userName; } 
+			set 
+			{
+			    _userName = value;
+			}
+        }
+
+		private Boolean _isActive;
+		[DataMember]
+		[SqlField(DbType.Boolean, 1, ColumnName ="is_active" )]		
+		public Boolean IsActive 
+		{ 
+		    get { return _isActive; } 
+			set 
+			{
+			    _isActive = value;
+			}
+        }
+
+		public const string BaseTableProjectionColumnList = "[user_id], [role_id]";
+		public const string BasicProjectionColumnList = "[user_id], [role_id], [role_name], [role_description], [user_name], [is_active]";
+
+	}
+
+	public partial class UserRoleRepository : Repository<UserRole> 
+	{
+		public UserRoleRepository(DataService DataService) : base(DataService)
+		{
+		}
+
+		public new InsurancesDataService  DataService  
+		{
+			get { return (InsurancesDataService) base.DataService; }
+			set { base.DataService = value; }
+		}
+
+	}
+	[Obsolete("Use nameof instead")]
+	public static partial class UserRoleFields
+	{
+		public const string UserId = "UserId";
+		public const string RoleId = "RoleId";
+		public const string RoleName = "RoleName";
+		public const string RoleDescription = "RoleDescription";
+		public const string UserName = "UserName";
+		public const string IsActive = "IsActive";
+	}
+
+	public static partial class UserRoleProjections
+	{
+		public const string BaseTable = "BaseTable";
+		public const string Basic = "Basic";
+	}
+}
+
+namespace WebApi.Entities
+{
+	public enum RoleId
+	{
+		Administrator = 1,
+		Delegator = 2,
+		CustomerServiceStore = 3,
+		CustomerExcellence = 4,
+		Viewer = 5,
+		TotalAccess = 6,
+		CustomerServiceLoan = 7,
+		Rotary = 8,
+		Storage = 9,
+		ReverseEpisodeStatus = 10,
+		ViewAllWalkingImplants = 11,
+		ViewMyWalkingImplants = 12,
+	}
 }
 
 namespace WebApi.Entities
@@ -1732,6 +2003,32 @@ namespace WebApi.Entities
 					_MasterDataRepository = new WebApi.Entities.MasterDataRepository(this);
 				}
 				return _MasterDataRepository;
+			}
+		}
+
+		private WebApi.Entities.RoleRepository _RoleRepository;
+		public WebApi.Entities.RoleRepository RoleRepository
+		{
+			get 
+			{
+				if ( _RoleRepository == null)
+				{
+					_RoleRepository = new WebApi.Entities.RoleRepository(this);
+				}
+				return _RoleRepository;
+			}
+		}
+
+		private WebApi.Entities.UserRoleRepository _UserRoleRepository;
+		public WebApi.Entities.UserRoleRepository UserRoleRepository
+		{
+			get 
+			{
+				if ( _UserRoleRepository == null)
+				{
+					_UserRoleRepository = new WebApi.Entities.UserRoleRepository(this);
+				}
+				return _UserRoleRepository;
 			}
 		}
 	}

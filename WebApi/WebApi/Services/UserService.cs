@@ -6,7 +6,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using WebApi.Entities;
-using WebApi.Helpers;
 using WebApi.Models;
 
 namespace WebApi.Services

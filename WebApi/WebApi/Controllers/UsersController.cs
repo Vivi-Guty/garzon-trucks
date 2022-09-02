@@ -36,7 +36,6 @@ namespace WebApi.Controllers
             return Ok(response);
         }
 
-        [Helpers.Authorize]
         [HttpGet]
         [Route("api/users/get-all")]
         public async Task<IActionResult> GetAll()
