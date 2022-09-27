@@ -10,6 +10,10 @@ export class AdminComponent implements OnInit {
   constructor(public txt: TextService) { }
 
   ngOnInit(): void {
+    this.items = [
+      {label: 'Users', icon: 'pi pi-fw pi-users', routerLink: ['users']},
+      {label: 'Insurances', icon: 'pi pi-fw pi-download', routerLink: ['insurances']}
+    ];
   }
 
 }

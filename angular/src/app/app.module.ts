@@ -36,8 +36,7 @@ export function createTranslateLoader(http: HttpClient) {
     AppComponent,
     HeaderComponent,
     LayoutComponent,
-    LoginComponent,
-    AdminComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,

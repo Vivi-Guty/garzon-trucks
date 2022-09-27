@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MenuModule } from 'primeng/menu';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { UsersComponent } from './users/users.component';
+import { AdminComponent } from './admin.component';
 
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
@@ -20,9 +22,11 @@ import { ConfirmationService } from 'primeng/api';
 import { MenuModule} from 'primeng/menu';
 import { SkeletonModule } from 'primeng/skeleton';
 
+
 @NgModule({
   declarations: [
-    UsersComponent
+    UsersComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,
