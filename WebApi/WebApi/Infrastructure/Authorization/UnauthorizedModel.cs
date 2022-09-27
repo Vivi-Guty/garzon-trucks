@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Infrastructure
+namespace WebApi.Infrastructure.Authorization
 {
     public class UnauthorizedModel
     {

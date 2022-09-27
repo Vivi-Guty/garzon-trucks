@@ -10,63 +10,62 @@
 
 
 
+export interface UserRole {
+    userId: number;
+    loginName: string | undefined;
+    userName: string | undefined;
+    userMail: string | undefined;
+    roleId: RoleId;
+}
+
+export enum RoleId {
+    Initiator = 1,
+    Advisor = 2,
+    DecisionMaker = 3,
+    Oec = 4,
+    SupportGroup = 5,
+    Viewer = 6,
+    System = 7,
+    AreaFunctionalAdmin = 8,
+    AreaSecurityAdmin = 9,
+    CountryFunctionalAdmin = 10,
+    CountrySecurityAdmin = 11,
+    GlobalFunctionalAdmin = 12,
+    GlobalSecurityAdmin = 13,
+    Notifier = 14,
+    SecondAdvisor = 15,
+    BusinessSupport = 16,
+    Validator = 17,
+    OecPlus = 18,
+    Legal = 19,
+    CountrySecurityLead = 20,
+    PlaneaBusinessPlansUser = 21,
+    PlaneaFinancialPlanning = 22,
+    PlaneaConsultation = 23,
+    PlaneaAdministrator = 24,
+    ProductOwner = 25,
+    CrossBorderAdmin = 26,
+}
+
 export interface User {
     userId: number;
-    loginName: string;
-    userName: string;
-    userEmail: string;
+    userName: string | undefined;
+    userMail: string | undefined;
     isActive: boolean;
     createdDate: Date;
     createdBy: number;
     modifiedDate: Date;
     modifiedBy: number;
-    userPasswordHash: string;
-    userPasswordSalt: string;
-    userPasswordExpirationDate: Date | undefined;
-    userLoginAttemps: number | undefined;
-    assignedTaskEmailEnabled: boolean;
-    materialListEmailEnabled: boolean;
-    updatedEpisodeEmailEnabled: boolean;
-    updatedBookingEmailEnabled: boolean;
-    cancelBooking: boolean;
-    completeBooking: boolean;
-    freeTask: boolean;
-    generateDeliveryNote: boolean;
-    generateOrder: boolean;
-    includeHandSurgery: boolean;
-    includeMaterialRequested: boolean;
-    includeMaterialUsed: boolean;
-    manageReposition: boolean;
-    postSurgeryDocumentation: boolean;
-    updateBooking: boolean;
-    finishedTasksEmailEnabled: boolean;
-    cancelBookingFinished: boolean;
-    commentAdded: boolean;
-    completeBookingFinished: boolean;
-    episodeCancelled: boolean;
-    freeTaskFinished: boolean;
-    generateDeliveryNoteFinished: boolean;
-    generateOrderFinished: boolean;
-    includeHandSurgeryFinished: boolean;
-    includeMaterialRequestedFinished: boolean;
-    includeMaterialUsedFinished: boolean;
-    interventionDateChanged: boolean;
-    manageRepositionFinished: boolean;
-    postSurgeryDocumentationFinished: boolean;
-    surgeryAuthorized: boolean;
-    updateBookingFinished: boolean;
-    deliveryTimeChanged: boolean;
-    deliveryPlaceChanged: boolean;
-    deliveryDateChanged: boolean;
-    interventionLocationChanged: boolean;
-    manageSpecialAuthorization: boolean;
-    wiCommentEmailsEnabled: string;
-    walkingImplants: any;
-    roleDescription: string;
-    wiUserName: string;
-    roleId: number;
-    permissionId: number;
-    permissionName: string;
-    roleName: string;
-    token: string;
+    loginName: string | undefined;
+    cultureCode: string | undefined;
+    upi: string | undefined;
+    ouId: number;
+    title: string | undefined;
+    seeCompactView: boolean;
+    loginFailedAttemptsCount: number;
+    lastLoginAttempt: Date | undefined;
+    hideAudit: boolean;
+    division: string | undefined;
+    token: string | undefined;
+    roles: UserRole[] | undefined;
 }

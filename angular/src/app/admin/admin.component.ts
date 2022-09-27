@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { TextService } from 'src/shared-services/text.service';
 
 @Component({
   selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  templateUrl: './admin.component.html'
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(public txt: TextService) { }
 
   ngOnInit(): void {
   }

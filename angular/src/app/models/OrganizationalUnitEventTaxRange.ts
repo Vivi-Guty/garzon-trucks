@@ -10,11 +10,12 @@
 
 
 
-export interface UserPasswordHistory {
-    userPasswordHistoryId: number;
-    userId: number;
-    userPasswordHash: string;
-    userPasswordSalt: string;
+export interface OrganizationalUnitEventTaxRange {
+    taxRangeId: number;
+    taxRangeFrom: number;
+    taxRangeTo: number;
+    taxRangeTax: number;
+    ouId: number;
     createdDate: Date;
     createdBy: number;
     modifiedDate: Date;

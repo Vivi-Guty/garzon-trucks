@@ -3,59 +3,238 @@
 	var generation = new DataLayerGeneration
 	{
 		ProviderName = "System.Data.SqlClient",
-		ConnectionStringName= "Insurances",
-		ConnectionString = @"Data Source=SQL17;Integrated Security=SSPI;Initial Catalog=JnJInsurance",
-		DataServiceName = "InsurancesDataService",
+		ConnectionString = @"Data Source=SQL14.in2007.i-nercya.com;User ID=sa;Password=SSss33..;Initial Catalog=AbbvieMap",
 		DefaultSchema = "dbo",
 		RootNamespace = "WebApi.Entities",
-		GenerateAsyncMethods = true,
+		DataServiceName = "MapDataService",
+        ConnectionStringName= "Map",
 		ImplementINotifyPropertyChanged = false,
-		GenerateTypeScript = false,
 		EntityTypesTableName = "entity_types",
 		EntityTypeNameColumnName = "entity_type_name",
-		GenerateEntityTypeId = false,
-		GenerateMessagePackAttributes = false,
-		GenerateKeyClasses = false,
+		GenerateEntityTypeId = true,
 		EntityNameToEntityViewTransform = TextTransform.ToUnderscoreLowerCaseNamingConvention,
 		AuditDateTimeKind = DateTimeKind.Utc,
+		GenerateTypeScript = true,
+		SequenceSuffix = "_seq",
+		GenerateAsyncMethods = true,		
+		GenerateMessagePackAttributes = false,
+		GenerateKeyClasses = false,
 		JsonType = JsonType.JToken,
 		GenerateProjectionColumnLists = true,
 		EntitySettings = new List<EntitySetting>
 		{
 			new EntitySetting 
 			{
+				BaseTableName = "texts",
+				EntityName = "Text"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "reference_data_etag",
+				EntityName = "ReferenceDataEtag"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "reference_table_item_types",
+				EntityName = "ReferenceTableItemType"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "reference_table_item_map_forms",
+				EntityName = "ReferenceTableItemMapForm"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "reference_table_items",
+				EntityName = "ReferenceTableItem"
+			},
+			new EntitySetting 
+			{
                 EntityName = "User", 
-				BaseTableName = "users"
+				BaseTableName = "users",
+				ParentPropertyName = "OuId"
 			},
-			new EntitySetting
+			new EntitySetting 
 			{
-				EntityName = "UserProperties",
-				BaseTableName = "user_properties"
-			},
-			new EntitySetting
-			{
-				EntityName = "UserPasswordHistory",
-				BaseTableName = "user_password_history"
-			},
-			new EntitySetting
-			{
-				EntityName = "MasterData",
-				BaseTableName = "master_data"
-			},
-			new EntitySetting
-			{
-				EntityName = "Role",
+                EntityName = "Role", 
 				BaseTableName = "roles"
+			},
+			new EntitySetting 
+			{
+                EntityName = "UserRoleEntity", 
+				BaseTableName = "user_role_entities"
 			},
 			new EntitySetting
 			{
 				EntityName = "UserRole",
-				BaseTableName = "user_roles"
+				//GenerateTypeScript = false
+			},
+			new EntitySetting 
+			{
+                EntityName = "UserPermission"
+			},
+			new EntitySetting 
+			{
+                EntityName = "UserRoleOrganizationalUnit"
+			},			
+			new EntitySetting 
+			{
+                EntityName = "UserCriteriaParameter", 
+				BaseTableName = "user_criteria_parameters"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "entity_hierarchy",
+				EntityName = "Entity",
+				ReadOnlyFields = "hierarchy_path"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "entity_types",
+				EntityName = "EntityType"
+			},						
+			new EntitySetting 
+			{
+				BaseTableName = "entity_ancestors",
+				EntityName = "EntityAncestors"                   
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "organizational_units",
+				EntityName = "OrganizationalUnit",
+				ParentPropertyName = "OuParentId"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "file_contents",
+				EntityName = "FileContent",
+				FieldGeneration = FieldGeneration.ForViews
+			},
+			new EntitySetting 
+			{
+                EntityName = "OrganizationalUnitType", 
+				BaseTableName = "organizational_unit_types"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "organizational_unit_products",
+				EntityName = "OrganizationalUnitProduct"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "organizational_unit_teams",
+				EntityName = "OrganizationalUnitTeam"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "organizational_unit_car_products",
+				EntityName = "OrganizationalUnitCarProduct"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "organizational_unit_company_codes",
+				EntityName = "OrganizationalUnitCompanyCode"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "organizational_unit_contracts",
+				EntityName = "OrganizationalUnitContract"
+			},
+			new EntitySetting 
+			{
+				Schema = "audit",
+				BaseTableName = "organizational_units",
+                EntityName = "OrganizationalUnitAudit"
+			},
+			new EntitySetting 
+			{
+				EntityName = "OrganizationalUnitHcoSapProvider",
+				BaseTableName = "organizational_unit_hco_sap_providers"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "organizational_unit_signers",
+				EntityName = "OrganizationalUnitSigner"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "organizational_unit_abbvie_entities",
+				EntityName = "OrganizationalUnitAbbvieEntity"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "organizational_unit_event_tax_ranges",
+				EntityName = "OrganizationalUnitEventTaxRange",
+				ParentPropertyName = "OuId"
+			},
+			new EntitySetting 
+			{
+				EntityName = "OrganizationalUnitTerritoryType",
+				BaseTableName = "organizational_unit_territory_types"
+			},
+			new EntitySetting 
+			{
+				EntityName = "OrganizationalUnitTerritory",
+				BaseTableName = "organizational_unit_territories"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "organizational_unit_income_taxes",
+				EntityName = "OrganizationalUnitIncomeTax"
+			},
+			new EntitySetting 
+			{
+				BaseTableName = "organizational_unit_iva_taxes",
+				EntityName = "OrganizationalUnitIvaTax"
+			},
+			new EntitySetting
+			{
+				EntityName = "OrganizationalUnitMdmCode",
+				BaseTableName = "organizational_unit_mdm_codes"
+			},
+			new EntitySetting 
+			{
+				Schema = "audit",
+				BaseTableName = "user_role_entities",
+                EntityName = "UserRoleEntityAudit"
+			},
+			new EntitySetting 
+			{
+				Schema = "audit",
+				BaseTableName = "users",
+                EntityName = "UserAudit"
+			},
+			new EntitySetting
+			{
+				EntityName = "FailureLogin",
+				BaseTableName = "failure_logins"
+			},
+			new EntitySetting 
+			{
+                EntityName = "Permission", 
+				BaseTableName = "permissions"
 			}
 		},
 		ProcedureSettings = new List<ProcedureSetting>
 		{
-			
+			new ProcedureSetting
+            {
+				ProcedureName = "set_context_info",
+				RelatedEntityName = "User",
+				ResultSetKind = ProcedureResultSetKind.None
+            },
+			new ProcedureSetting 
+			{
+				ProcedureName = "add_all_products_into_ou",
+				RelatedEntityName = "OrganizationalUnitProduct",
+				ResultSetKind = ProcedureResultSetKind.None
+			},
+			new ProcedureSetting 
+			{
+				ProcedureName = "update_abbvie_entities_ous",
+				RelatedEntityName = "OrganizationalUnitAbbvieEntity",
+				ResultSetKind = ProcedureResultSetKind.None
+			}
 		},
 		EnumSettings = new List<EnumSetting>
 		{
@@ -63,7 +242,19 @@
 			{
 				BaseTableName = "roles",
 				IdField = "role_id",
-				NameField = "role_name"
+				NameField = "role_name_localizable"
+			},
+			new EnumSetting
+			{
+				BaseTableName = "permissions",
+				IdField = "permission_id",
+				NameField = "permission_name_localizable"
+			},
+			new EnumSetting
+			{
+				BaseTableName = "entity_type_enums",
+				IdField = "entity_type_id",
+				NameField = "entity_type_name"
 			}
 		},
 	};

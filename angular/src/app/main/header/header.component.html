@@ -1,7 +1,7 @@
 <div *ngIf="currentUser">
   {{currentUser.userName}}
   <p-button (onClick)="logout()">{{ 'HEADER.LOGOUT' | translate }}</p-button>
-  <a routerLink="">Home</a>
+  <p-menubar [model]="languages" [style]="{'float':'right'}"></p-menubar>
 
   <!-- <ul *ngFor="let language of languages">
     <li>{{ 'LANGUAGES.' + language | translate }}</li>
@@ -14,5 +14,17 @@
     </div>
   </nav> -->
 
-  <p-menubar [model]="items"></p-menubar>
+  <p>
+    <button pButton type="button" label="{{ txt.texts['Home'] }}" class="p-button-outlined"></button>
+    <button pButton type="button" label="{{ txt.texts['Activity'] }}" class="p-button-outlined"></button>
+    <button pButton type="button" label="{{ txt.texts['MAPForms'] }}" class="p-button-outlined"></button>
+    <button pButton type="button" label="{{ txt.texts['EventsCongresses'] }}" class="p-button-outlined"></button>
+    <button pButton type="button" label="{{ txt.texts['Searcher'] }}" class="p-button-outlined"></button>
+    <button pButton type="button" label="{{ txt.texts['AdvancedSearch'] }}" class="p-button-outlined"></button>
+    <button pButton type="button" label="{{ txt.texts['Dashboard'] }}" class="p-button-outlined"></button>
+    <button pButton type="button" label="{{ txt.texts['CrossBorder'] }}" class="p-button-outlined"></button>
+    <button pButton type="button" label="{{ txt.texts['Backoffice'] }}" [routerLink]="['admin/users']" class="p-button-outlined"></button>
+  </p>
+
+
 </div>

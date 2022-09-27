@@ -5,11 +5,11 @@ import { AuthenticationService } from 'src/shared-services/authentication.servic
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
 
+  domain: string = '';
   loginName: string = '';
   password: string = '';
   loading = false;
@@ -27,15 +27,16 @@ export class LoginComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.loginName = "carlos.gomez";
-    this.password = "neo#jnj#123$";
+    this.domain = "inercya-test";
+    this.loginName = "david.garcia";
+    this.password = "garcia";
   }
 
   async onSubmit() {
     this.submitted = true;
 
     this.loading = true;
-    this.authenticationService.login(this.loginName, this.password).then(response => {
+    this.authenticationService.login(this.domain, this.loginName, this.password).then(response => {
       // get return url from route parameters or default to '/'
       const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
       this.router.navigate([returnUrl]);

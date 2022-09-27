@@ -17,7 +17,7 @@ namespace WebApi.Entities
             return services.AddSingleton(provider =>
             {
                 var configuration = provider.GetRequiredService<IConfiguration>();
-                var connectionString = configuration.GetConnectionString("Insurances");
+                var connectionString = configuration.GetConnectionString("Map");
                 return new DataServiceFactory(connectionString);
             })
             .AddScoped(provider =>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Login } from 'src/app/models/Login';
 import { User } from 'src/app/models/User';
 import { ApiService } from './api.service';
 
@@ -22,8 +23,11 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
-  async login(loginName: string, password: string) {
-    const user = await this.apiService.post<User>("users/authenticate", { loginName, password});
+  async login(domain: string, loginName: string, password: string) {
+
+    let loginModel = { domain: domain, loginName: loginName, password: password } as Login;
+
+    const user = await this.apiService.post<User>("users/authenticate", loginModel);
     localStorage.setItem('currentUser', JSON.stringify(user));
     this.currentUserSubject.next(user);
   }
@@ -33,9 +37,4 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
-
-  getAll(): Promise<User[]>{
-    return this.apiService.get<User[]>('users/get-all');
-  }
-
 }

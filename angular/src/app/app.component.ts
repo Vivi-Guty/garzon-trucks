@@ -1,22 +1,18 @@
-import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { User } from './models/User';
+import { Component, OnInit } from '@angular/core';
+import { TextService } from '../shared-services/text.service';
+
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   title = 'angular';
 
-  constructor(translate: TranslateService)
-  {
-        // this language will be used as a fallback when a translation isn't found in the current language
-        translate.setDefaultLang('es');
+  constructor(public txt: TextService)  {  }
 
-         // the lang to use, if the lang isn't available, it will use the current loader to get them
-        translate.use('es');
+    async ngOnInit(){
+      this.txt.texts = await this.txt.getTexts('en');
   }
 }

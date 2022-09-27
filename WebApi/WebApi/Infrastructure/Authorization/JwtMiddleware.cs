@@ -4,7 +4,7 @@ using System.Security.Claims;
 using System.Text;
 using WebApi.Services;
 
-namespace WebApi.Infrastructure
+namespace WebApi.Infrastructure.Authorization
 {
     public class JwtMiddleware
     {
@@ -62,7 +62,7 @@ namespace WebApi.Infrastructure
             {
                 // do nothing if jwt validation fails
                 // user is not attached to context so request won't have access to secure routes
-                
+
             }
         }
     }

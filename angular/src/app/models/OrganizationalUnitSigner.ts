@@ -10,18 +10,17 @@
 
 
 
-export interface MasterData {
-    masterItemId: number;
-    masterDataTypeId: number;
-    masterItemName: string;
-    masterItemDescription: string;
+export interface OrganizationalUnitSigner {
+    signerId: number;
+    signerName: string | undefined;
+    signerTitle: string | undefined;
+    signerDni: string | undefined;
+    ouId: number;
+    isActive: boolean;
     createdDate: Date;
     createdBy: number;
     modifiedDate: Date;
     modifiedBy: number;
-    isActive: boolean;
-    ordinal: number | undefined;
-    typeName: string;
-    creatorName: string;
-    modifierName: string;
+    signerEmail: string | undefined;
+    isLegalRepresentative: boolean;
 }

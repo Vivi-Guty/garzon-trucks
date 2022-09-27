@@ -5,8 +5,7 @@ import { ErrorService } from 'src/shared-services/error.service';
 
 @Component({
   selector: 'app-layout',
-  templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.css']
+  templateUrl: './layout.component.html'
 })
 export class LayoutComponent implements OnInit {
 
@@ -16,12 +15,7 @@ export class LayoutComponent implements OnInit {
   constructor(private authenticationService: AuthenticationService, private errorService: ErrorService) { }
 
   ngOnInit() {
-    this.authenticationService.getAll().then(response => {
-      this.users = response;
-    }).catch(error => {
-      console.error(error);
-      this.errorService.show({ error: error, title: error.statusText});
-    });
+
   }
 
 }

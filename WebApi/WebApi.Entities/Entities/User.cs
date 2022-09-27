@@ -10,7 +10,7 @@ namespace WebApi.Entities
     public partial class User
     {
         [DataMember]
-        public string? Token { get; set; }
+        public string Token { get; set; }
 
         [DataMember]
         public IList<UserRole> Roles { get; set; } = new List<UserRole>();
