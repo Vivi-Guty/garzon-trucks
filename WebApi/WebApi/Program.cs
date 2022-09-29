@@ -8,7 +8,6 @@ using System.Configuration;
 using System.Text.Json.Serialization;
 using WebApi.Entities;
 using WebApi.Infrastructure;
-using WebApi.Infrastructure.Authorization;
 using WebApi.Services;
 
 
@@ -73,6 +72,7 @@ try
 
     // custom jwt auth middleware
     app.UseMiddleware<JwtMiddleware>();
+
     
 
     app.UseCustomExceptionHandling();

@@ -1,42 +1,72 @@
-﻿using inercya.EntityLite;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using System.Net;
-using System.Net.Http.Headers;
-using System.Web.Http.Results;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebApi.Entities;
-using WebApi.Services;
 
 namespace WebApi.Controllers
 {
     public class BaseController : Controller
     {
-        public AuthorizationService AuthorizationService { get; set; }
-
-        private MapDataService _dataService;
-        public MapDataService DataService
+        private InsurancesDataService? _dataService;
+        public InsurancesDataService DataService
         {
             get
             {
                 if (_dataService == null)
                 {
-                    _dataService = this.HttpContext.RequestServices.GetRequiredService<MapDataService>();
+                    _dataService = this.HttpContext.RequestServices.GetRequiredService<InsurancesDataService>();
                 }
                 return _dataService;
             }
         }
 
-        public User? _currentUser;
+        private User? _currentUser;
         protected User? CurrentUser
         {
             get
             {
                 if (this._currentUser == null)
-                {                    
+                {
                     this._currentUser = this.HttpContext.Items["CurrentUser"] as User;
                 }
                 return _currentUser;
             }
+        }
+
+        protected bool HasRoles
+        {
+            get
+            {
+                var user = this.CurrentUser;
+                return user != null && user.Roles != null && user.Roles.Count > 0;
+            }
+        }
+
+
+        protected bool IsInRole(RoleId roleId)
+        {
+            if (CurrentUser != null)
+            {
+                return HasRoles && this.CurrentUser.Roles.Any(r => r.RoleId == roleId);
+            }
+            return false;
+        }
+
+        protected bool IsInAnyRole(params RoleId[] roleIds)
+        {
+            if (CurrentUser != null)
+            {
+                return HasRoles && this.CurrentUser.Roles.Any(r => Array.IndexOf(roleIds, r.RoleId) >= 0);
+            }
+            return false;
+        }
+
+        protected bool IsInRoleGlobally(RoleId roleId)
+        {
+            return IsInRole(roleId);
+        }
+
+        protected bool IsInAnyRoleGlobally(params RoleId[] roleIds)
+        {
+            return IsInAnyRole(roleIds);
         }
 
         protected bool IsAppUser
@@ -59,23 +89,25 @@ namespace WebApi.Controllers
         {
             CheckAuth(() => IsAppUser);
         }
-        protected async Task CheckHaveThisPermission(PermissionId permission)
+
+        protected void CheckIsInRole(RoleId role)
         {
-            CheckAuthAsync(() => HasPermission(permission));
-        }
-        
-        protected async Task<bool> HasPermission(PermissionId permission)
-        {
-            return await AuthorizationService.HasPermission(CurrentUser.UserId, permission);
+            CheckAuth(() => IsInRole(role));
         }
 
-        protected bool HasRoles
+        protected void CheckIsInRoleGlobally(RoleId roleId)
         {
-            get
-            {
-                var user = this.CurrentUser;
-                return user != null && user.Roles != null && user.Roles.Count > 0;
-            }
+            CheckAuth(() => IsInRoleGlobally(roleId));
+        }
+
+        protected void CheckIsInAnyRole(params RoleId[] roleIds)
+        {
+            CheckAuth(() => IsInAnyRole(roleIds));
+        }
+
+        protected void CheckIsInAnyRoleGlobally(RoleId[] roleIds)
+        {
+            CheckAuth(() => IsInAnyRoleGlobally(roleIds));
         }
 
         protected void ThrowAuthorizationException()

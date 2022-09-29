@@ -1,38 +1,23 @@
-<p-card style="background-color: #f1f1f2; height: 100%; display: flex;  justify-content: center;  align-items: center; padding-top: 20px; padding-bottom: 20px;">
+<p-card>
   <ng-template pTemplate="header">
-      <div style="text-align: center; margin-top: 10px;"><strong>Welcome to MAP</strong></div>
+      JWT Login Example
   </ng-template>
 
   <div class="grid p-fluid">
-      <div class="col-12">
+    <div class="col-12">
         <span class="p-float-label">
-          <input id="float-input" type="text" pInputText [(ngModel)]="domain" placeholder="Domain">
-          <!--label for="float-input">Domain</label>-->
+          <input id="float-input" type="text" pInputText [(ngModel)]="loginName">
+          <label for="float-input">Loginname</label>
         </span>
-      </div>
-  </div>
-
-  <div class="grid p-fluid">
-    <div class="col-12">
-      <span class="p-float-label">
-        <input id="float-input" type="text" pInputText [(ngModel)]="loginName" placeholder="User name">
-        <!--<label for="float-input">User name</label>-->
-      </span>
     </div>
-  </div>
 
-  <div class="grid p-fluid">
     <div class="col-12">
         <span class="p-float-label">
-          <p-password [(ngModel)]="password" [feedback]="false" placeholder="Password"></p-password>
-          <!--<label for="float-input">Password</label>-->
+          <p-password [(ngModel)]="password" [feedback]="false"></p-password>
+          <label for="float-input">Password</label>
         </span>
     </div>
   </div>
 
-  <div class="grid p-fluid">
-    <div class="col-12">
-      <button pButton pRipple type="button" label="Login" class="p-button-success" (click)="onSubmit()" style="background-color:#a6ce38"></button>
-    </div>
-  </div>
+  <p-button label="Login" icon="pi pi-check" iconPos="left" (onClick)="onSubmit()"></p-button>
 </p-card>

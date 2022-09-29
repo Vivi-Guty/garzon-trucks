@@ -1,22 +1,7 @@
-<div class="admin-container">
-  <div class="lateral-menu">
-    <p><button pButton pRipple type="button" label="{{ txt.texts['Users'] }}" [routerLink]="['users']"  class="p-button-secondary"></button></p>
-    <p><button pButton pRipple type="button" label="{{ txt.texts['OrganizationalUnits'] }}" [routerLink]="['organizational-units']"  class="p-button-secondary"></button></p>
-    <p><button pButton pRipple type="button" label="{{ txt.texts['Maintenance'] }}" class="p-button-secondary"></button></p>
-    <p><button pButton pRipple type="button" label="{{ txt.texts['Events'] }}" class="p-button-secondary"></button></p>
-    <p><button pButton pRipple type="button" label="{{ txt.texts['NonHCOOrganizations'] }}" class="p-button-secondary"></button></p>
-    <p><button pButton pRipple type="button" label="{{ txt.texts['InternalOrders'] }}" class="p-button-secondary"></button></p>
-    <p><button pButton pRipple type="button" label="{{ txt.texts['Providers'] }} SAP (local)" class="p-button-secondary"></button></p>
-    <p><button pButton pRipple type="button" label="{{ txt.texts['Providers'] }} SAP" class="p-button-secondary"></button></p>
-    <p><button pButton pRipple type="button" label="{{ txt.texts['CostCentersWbs'] }}" class="p-button-secondary"></button></p>
-    <p><button pButton pRipple type="button" label="{{ txt.texts['ODSquery'] }}" class="p-button-secondary"></button></p>
-    <p><button pButton pRipple type="button" label="{{ txt.texts['MDMQuery'] }}" class="p-button-secondary"></button></p>
-    <p><button pButton pRipple type="button" label="{{ txt.texts['Delegations'] }}" class="p-button-secondary"></button></p>
-    <p><button pButton pRipple type="button" label="{{ txt.texts['Contracts'] }}" class="p-button-secondary"></button></p>
-    <p><button pButton pRipple type="button" label="{{ txt.texts['Customers'] }}" class="p-button-secondary"></button></p>
-    <p><button pButton pRipple type="button" label="{{ txt.texts['DataExtraction'] }}" class="p-button-secondary"></button></p>
-  </div>
-  <div class="content-container">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+admin works
+
+<ul>
+  <li><a routerLink="users">Usuarios</a></li>
+  <li><a routerLink="customers">Clientes</a></li>
+</ul>
+<router-outlet></router-outlet>

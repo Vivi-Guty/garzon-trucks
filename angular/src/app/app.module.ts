@@ -10,7 +10,6 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
-import { TableModule } from 'primeng/table';
 import { CustomizedMissingTranslationHandler } from 'src/shared-services/missing-translation-handler';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -23,8 +22,6 @@ import { FormsModule } from '@angular/forms';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { AdminComponent } from './admin/admin.component';
-import { TextService } from 'src/shared-services/text.service';
-import { PanelMenuModule } from 'primeng/panelmenu';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -48,8 +45,6 @@ export function createTranslateLoader(http: HttpClient) {
     PasswordModule,
     ButtonModule,
     MenubarModule,
-    PanelMenuModule,
-    TableModule,
     HttpClientModule,
     FormsModule,
     TranslateModule.forRoot({
@@ -63,10 +58,9 @@ export function createTranslateLoader(http: HttpClient) {
     })
   ],
   providers: [
-    TextService,
     MessageService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

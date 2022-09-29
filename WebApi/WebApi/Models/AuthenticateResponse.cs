@@ -7,14 +7,13 @@ namespace WebApi.Models
         public int Id { get; set; }
         public string UserName { get; set; }
         public string Token { get; set; }
-        public OkResultModel Result { get; set; }
 
-        public AuthenticateResponse(User? user, string token, OkResultModel result)
+
+        public AuthenticateResponse(User user, string token)
         {
-            Id = user != null ? user.UserId : 0;
-            UserName = user != null ? user.UserName : string.Empty;            
+            Id = user.UserId;
+            UserName = user.UserName;
             Token = token;
-            Result = result;
         }
     }
 }

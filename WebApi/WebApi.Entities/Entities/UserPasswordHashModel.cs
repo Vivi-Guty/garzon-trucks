@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace WebApi.Entities
 {
-    public class TextsData
+    public class UserPasswordHashModel
     {
-        public Dictionary<string, Dictionary<string, string>>? TextsByLanguageCode { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
     }
 }

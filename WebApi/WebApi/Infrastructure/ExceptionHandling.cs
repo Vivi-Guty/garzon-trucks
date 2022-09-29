@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using WebApi.Entities;
-using WebApi.Infrastructure.Authorization;
 
 namespace WebApi.Infrastructure
 {

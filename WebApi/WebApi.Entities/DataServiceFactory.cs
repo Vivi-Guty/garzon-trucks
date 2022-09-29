@@ -19,9 +19,9 @@ namespace WebApi.Entities
             this.connectionString = connectionString;
         }
 
-        public MapDataService CreateDataService()
+        public InsurancesDataService CreateDataService()
         {
-            return new MapDataService(connectionString, "System.Data.SqlClient");
+            return new InsurancesDataService(connectionString, "System.Data.SqlClient");
         }
     }
 }

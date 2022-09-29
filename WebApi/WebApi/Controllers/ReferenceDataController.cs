@@ -7,10 +7,10 @@ namespace WebApi.Controllers
     public class ReferenceDataController : BaseController
     {
         [HttpGet]
-        [Route("api/reference-data/users")]
-        public async Task<IActionResult> GetUsers()
+        [Route("api/reference-data/master-data")]
+        public async Task<IActionResult> GetMasterData()
         {
-            return Ok(await this.DataService.UserRepository.Query(Projection.BaseTable).ToListAsync());
+            return Ok(await this.DataService.MasterDataRepository.Query(Projection.BaseTable).ToListAsync());
         }
     }
 }

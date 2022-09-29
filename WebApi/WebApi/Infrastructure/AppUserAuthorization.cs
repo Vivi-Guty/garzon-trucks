@@ -1,4 +1,4 @@
-﻿namespace WebApi.Infrastructure.Authorization
+﻿namespace WebApi.Infrastructure
 {
     /// <summary>
     /// Se encarga de denegar todas las peticiones no autenticadas
@@ -8,13 +8,14 @@
     /// </summary>
     public class AppUserAuthorization
     {
-        private readonly RequestDelegate? next;
-        private readonly HashSet<string>? publicPaths;
+
+        private readonly RequestDelegate next;
+        private readonly HashSet<string> publicPaths;
 
         public AppUserAuthorization(RequestDelegate next, IConfiguration configuration)
         {
             this.next = next;
-            publicPaths = new HashSet<string>(configuration.GetSection("PublicPaths").Get<string[]>());
+            this.publicPaths = new HashSet<string>(configuration.GetSection("PublicPaths").Get<string[]>());
         }
 
         public async Task InvokeAsync(HttpContext context)

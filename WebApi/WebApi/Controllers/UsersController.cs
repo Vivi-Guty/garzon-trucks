@@ -1,8 +1,6 @@
 ﻿using inercya.EntityLite;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Permissions;
-using WebApi.Entities;
-using WebApi.Infrastructure.Authorization;
 using WebApi.Models;
 using WebApi.Services;
 
@@ -28,25 +26,24 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("api/users/authenticate")]
-        public async Task<IActionResult> Authenticate([FromBody] Login loginModel)
+        public async Task<IActionResult> Authenticate([FromBody] AuthenticateRequest model)
         {
-            var response = await _userService.Authenticate(loginModel);
+            var response = await _userService.Authenticate(model);
 
-            if (response == null || response.Result.ResultCode == OkResultCodesModel.ResultCodeError) {
-                var messageError = (response == null || string.IsNullOrEmpty(response.Result.Message)) ? "Username or password is incorrect" : response.Result.Message;
-                return BadRequest(new { message = messageError });                
-            }                
+            if (response == null)
+                return BadRequest(new { message = "Username or password is incorrect" });
 
             return Ok(response);
         }
 
-        [HttpPost]
-        [Route("api/admin/search-users")]
-        public async Task<IActionResult> SearchUsers(UserCriteria userCriteria)
+        [HttpGet]
+        [Route("api/users/get-all")]
+        public async Task<IActionResult> GetAll()
         {
-            await CheckHaveThisPermission(PermissionId.AdminUsers);
-
-            return this.Ok(await this.DataService.UserRepository.Query(Projection.BaseTable).ToListAsync());
+            var currentUser = this.CurrentUser;
+            var users = await this.DataService.UserRepository.Query(Projection.BaseTable).ToListAsync();
+            _logger.LogInformation("GetAll method with {0} users", users.Count);
+            return Ok(users);
         }
     }
 }
