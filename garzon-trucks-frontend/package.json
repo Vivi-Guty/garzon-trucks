@@ -1,5 +1,5 @@
 {
-  "name": "angular",
+  "name": "garzon-trucks-frontend",
   "version": "0.0.0",
   "scripts": {
     "start-angular": "ng serve --port=4200 --proxy-config=proxy.conf.json",
