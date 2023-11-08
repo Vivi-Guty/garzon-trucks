@@ -126,6 +126,18 @@ namespace WebApi.Entities
 			}
         }
 
+		private Boolean _isInternalUser;
+		[DataMember]
+		[SqlField(DbType.Boolean, 1, ColumnName ="is_internal_user", BaseColumnName ="is_internal_user", BaseTableName = "users" )]		
+		public Boolean IsInternalUser 
+		{ 
+		    get { return _isInternalUser; } 
+			set 
+			{
+			    _isInternalUser = value;
+			}
+        }
+
 		private Byte[] _userPasswordHash;
 		[DataMember]
 		[SqlField(DbType.Binary, 32, ColumnName ="user_password_hash" )]		
@@ -630,6 +642,54 @@ namespace WebApi.Entities
 			}
         }
 
+		private String _lastFirstOrderField;
+		[DataMember]
+		[SqlField(DbType.AnsiString, 100, ColumnName ="last_first_order_field" )]		
+		public String LastFirstOrderField 
+		{ 
+		    get { return _lastFirstOrderField; } 
+			set 
+			{
+			    _lastFirstOrderField = value;
+			}
+        }
+
+		private String _lastSecondOrderField;
+		[DataMember]
+		[SqlField(DbType.AnsiString, 100, ColumnName ="last_second_order_field" )]		
+		public String LastSecondOrderField 
+		{ 
+		    get { return _lastSecondOrderField; } 
+			set 
+			{
+			    _lastSecondOrderField = value;
+			}
+        }
+
+		private Boolean? _isDescending;
+		[DataMember]
+		[SqlField(DbType.Boolean, 1, AllowNull = true, ColumnName ="is_descending" )]		
+		public Boolean? IsDescending 
+		{ 
+		    get { return _isDescending; } 
+			set 
+			{
+			    _isDescending = value;
+			}
+        }
+
+		private Boolean? _isSecondDescending;
+		[DataMember]
+		[SqlField(DbType.Boolean, 1, AllowNull = true, ColumnName ="is_second_descending" )]		
+		public Boolean? IsSecondDescending 
+		{ 
+		    get { return _isSecondDescending; } 
+			set 
+			{
+			    _isSecondDescending = value;
+			}
+        }
+
 		private String _roleDescription;
 		[DataMember]
 		[SqlField(DbType.String, 2147483647, IsReadOnly = true, ColumnName ="role_description" )]		
@@ -702,9 +762,9 @@ namespace WebApi.Entities
 			}
         }
 
-		public const string BaseTableProjectionColumnList = "[user_id], [login_name], [user_name], [user_email], [is_active], [created_date], [created_by], [modified_date], [modified_by]";
-		public const string BasicProjectionColumnList = "[user_id], [login_name], [user_name], [user_email], [is_active], [user_password_hash], [user_password_salt], [user_password_expiration_date], [user_login_attemps], [created_date], [created_by], [modified_date], [modified_by], [assigned_task_email_enabled], [material_list_email_enabled], [updated_episode_email_enabled], [updated_booking_email_enabled], [cancel_booking], [complete_booking], [free_task], [generate_delivery_note], [generate_order], [include_hand_surgery], [include_material_requested], [include_material_used], [manage_reposition], [post_surgery_documentation], [update_booking], [finished_tasks_email_enabled], [cancel_booking_finished], [comment_added], [complete_booking_finished], [episode_cancelled], [free_task_finished], [generate_delivery_note_finished], [generate_order_finished], [include_hand_surgery_finished], [include_material_requested_finished], [include_material_used_finished], [intervention_date_changed], [manage_reposition_finished], [post_surgery_documentation_finished], [surgery_authorized], [update_booking_finished], [delivery_time_changed], [delivery_place_changed], [delivery_date_changed], [intervention_location_changed], [manage_special_authorization], [wi_comment_emails_enabled], [walking_implants_json]";
-		public const string ExtendedProjectionColumnList = "[user_name], [user_id], [is_active], [login_name], [user_email], [user_password_expiration_date], [created_date], [modified_date], [role_description], [wi_user_name]";
+		public const string BaseTableProjectionColumnList = "[user_id], [login_name], [user_name], [user_email], [is_active], [created_date], [created_by], [modified_date], [modified_by], [is_internal_user]";
+		public const string BasicProjectionColumnList = "[user_id], [login_name], [user_name], [user_email], [is_active], [user_password_hash], [user_password_salt], [user_password_expiration_date], [user_login_attemps], [created_date], [created_by], [modified_date], [modified_by], [assigned_task_email_enabled], [material_list_email_enabled], [updated_episode_email_enabled], [updated_booking_email_enabled], [cancel_booking], [complete_booking], [free_task], [generate_delivery_note], [generate_order], [include_hand_surgery], [include_material_requested], [include_material_used], [manage_reposition], [post_surgery_documentation], [update_booking], [finished_tasks_email_enabled], [cancel_booking_finished], [comment_added], [complete_booking_finished], [episode_cancelled], [free_task_finished], [generate_delivery_note_finished], [generate_order_finished], [include_hand_surgery_finished], [include_material_requested_finished], [include_material_used_finished], [intervention_date_changed], [manage_reposition_finished], [post_surgery_documentation_finished], [surgery_authorized], [update_booking_finished], [delivery_time_changed], [delivery_place_changed], [delivery_date_changed], [intervention_location_changed], [manage_special_authorization], [wi_comment_emails_enabled], [walking_implants_json], [last_first_order_field], [last_second_order_field], [is_descending], [is_second_descending]";
+		public const string ExtendedProjectionColumnList = "[user_name], [user_id], [is_active], [login_name], [user_email], [is_internal_user], [user_password_expiration_date], [created_date], [modified_date], [role_description], [wi_user_name]";
 		public const string MinimalProjectionColumnList = "[user_id], [login_name], [user_name], [user_email], [is_active], [user_password_expiration_date], [user_login_attemps], [created_date], [created_by], [modified_date], [modified_by]";
 		public const string PermissionBasicProjectionColumnList = "[user_id], [role_id], [permission_id], [permission_name], [role_name], [role_description]";
 
@@ -808,6 +868,7 @@ namespace WebApi.Entities
 		public const string CreatedBy = "CreatedBy";
 		public const string ModifiedDate = "ModifiedDate";
 		public const string ModifiedBy = "ModifiedBy";
+		public const string IsInternalUser = "IsInternalUser";
 		public const string UserPasswordHash = "UserPasswordHash";
 		public const string UserPasswordSalt = "UserPasswordSalt";
 		public const string UserPasswordExpirationDate = "UserPasswordExpirationDate";
@@ -850,6 +911,10 @@ namespace WebApi.Entities
 		public const string ManageSpecialAuthorization = "ManageSpecialAuthorization";
 		public const string WiCommentEmailsEnabled = "WiCommentEmailsEnabled";
 		public const string WalkingImplants = "WalkingImplants";
+		public const string LastFirstOrderField = "LastFirstOrderField";
+		public const string LastSecondOrderField = "LastSecondOrderField";
+		public const string IsDescending = "IsDescending";
+		public const string IsSecondDescending = "IsSecondDescending";
 		public const string RoleDescription = "RoleDescription";
 		public const string WiUserName = "WiUserName";
 		public const string RoleId = "RoleId";
