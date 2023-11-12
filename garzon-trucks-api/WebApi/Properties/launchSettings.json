@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "WebApi": {
+    "GarzonTrucksApi": {
       "commandName": "Project",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

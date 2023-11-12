@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using WebApi.Entities;
+using GarzonTrucksApi.Entities;
 
-namespace WebApi.Infrastructure
+namespace GarzonTrucksApi.Infrastructure
 {
     public class ExceptionHandlerMiddleware
     {

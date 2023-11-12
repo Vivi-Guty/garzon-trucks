@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "start-angular": "ng serve --port=4200 --proxy-config=proxy.conf.json",
-    "generate-model": "dotnet run --project .\\..\\WebApi\\GenerateTypeScriptModels\\GenerateTypeScriptModels.csproj",
-    "start-backend": "dotnet run --project .\\..\\WebApi\\WebApi\\WebApi.csproj  --launch-profile \"WebApi\""
+    "generate-model": "dotnet run --project .\\..\\garzon-trucks-api\\GenerateTypeScriptModels\\GenerateTypeScriptModels.csproj",
+    "start-backend": "dotnet run --project .\\..\\garzon-trucks-api\\WebApi\\garzonTrucksApi.csproj  --launch-profile \"GarzonTrucksApi\""
   },
   "private": true,
   "dependencies": {

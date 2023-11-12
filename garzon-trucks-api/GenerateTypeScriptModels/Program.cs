@@ -5,7 +5,7 @@ using NJsonSchema.Generation;
 using System.Runtime.Serialization;
 
 Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
-var entitiesAssembly = typeof(WebApi.Entities.DataServiceFactory).Assembly;
+var entitiesAssembly = typeof(GarzonTrucksApi.Entities.DataServiceFactory).Assembly;
 var types = entitiesAssembly.ExportedTypes;
 var selectedTypes = types.Where(x => x.IsEnum || x.CustomAttributes.Any(ad => ad.AttributeType == typeof(DataContractAttribute)));
 

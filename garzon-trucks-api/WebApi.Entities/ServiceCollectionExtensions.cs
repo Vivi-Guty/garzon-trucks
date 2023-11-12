@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebApi.Services;
+using GarzonTrucksApi.Services;
 
-namespace WebApi.Entities
+namespace GarzonTrucksApi.Entities
 {
     public static class ServiceCollectionExtensions
     {

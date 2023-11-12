@@ -2,9 +2,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using WebApi.Services;
+using GarzonTrucksApi.Services;
 
-namespace WebApi.Infrastructure
+namespace GarzonTrucksApi.Infrastructure
 {
     public class JwtMiddleware
     {

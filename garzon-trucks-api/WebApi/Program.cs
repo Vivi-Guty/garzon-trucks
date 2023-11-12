@@ -6,9 +6,9 @@ using NLog;
 using NLog.Web;
 using System.Configuration;
 using System.Text.Json.Serialization;
-using WebApi.Entities;
-using WebApi.Infrastructure;
-using WebApi.Services;
+using GarzonTrucksApi.Entities;
+using GarzonTrucksApi.Infrastructure;
+using GarzonTrucksApi.Services;
 
 
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();

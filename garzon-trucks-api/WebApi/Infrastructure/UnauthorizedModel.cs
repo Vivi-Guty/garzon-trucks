@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Infrastructure
+namespace GarzonTrucksApi.Infrastructure
 {
     public class UnauthorizedModel
     {

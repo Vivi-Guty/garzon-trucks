@@ -1,4 +1,4 @@
-﻿namespace WebApi.Infrastructure
+﻿namespace GarzonTrucksApi.Infrastructure
 {
     /// <summary>
     /// Se encarga de denegar todas las peticiones no autenticadas

@@ -4,10 +4,10 @@
 	{
 		ProviderName = "System.Data.SqlClient",
 		ConnectionStringName= "Insurances",
-		ConnectionString = @"Data Source=SQL17;Integrated Security=SSPI;Initial Catalog=JnJInsurance",
+		ConnectionString = @"Data Source=.;Integrated Security=SSPI;Initial Catalog=garzontrucks",
 		DataServiceName = "InsurancesDataService",
 		DefaultSchema = "dbo",
-		RootNamespace = "WebApi.Entities",
+		RootNamespace = "GarzonTrucksApi.Entities",
 		GenerateAsyncMethods = true,
 		ImplementINotifyPropertyChanged = false,
 		GenerateTypeScript = false,

@@ -1,4 +1,4 @@
-﻿namespace WebApi.Infrastructure
+﻿namespace GarzonTrucksApi.Infrastructure
 {
     public class CorsOptions
     {

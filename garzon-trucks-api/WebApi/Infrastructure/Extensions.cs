@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Options;
 using System.Text;
 
-namespace WebApi.Infrastructure
+namespace GarzonTrucksApi.Infrastructure
 {
     public static class Extensions
     {

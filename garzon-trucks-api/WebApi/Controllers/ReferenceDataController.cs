@@ -1,7 +1,7 @@
 ﻿using inercya.EntityLite;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Controllers
+namespace GarzonTrucksApi.Controllers
 {
     [ApiController]
     public class ReferenceDataController : BaseController

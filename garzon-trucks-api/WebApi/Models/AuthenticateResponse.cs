@@ -1,6 +1,6 @@
-﻿using WebApi.Entities;
+﻿using GarzonTrucksApi.Entities;
 
-namespace WebApi.Models
+namespace GarzonTrucksApi.Models
 {
     public class AuthenticateResponse
     {

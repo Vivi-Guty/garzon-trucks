@@ -11,7 +11,7 @@ using System.ComponentModel;
 using inercya.EntityLite;	
 using inercya.EntityLite.Extensions;	
 
-namespace WebApi.Entities
+namespace GarzonTrucksApi.Entities
 {
 	[Serializable]
 	[DataContract]
@@ -714,59 +714,9 @@ namespace WebApi.Entities
 			}
         }
 
-		private RoleId _roleId;
-		[DataMember]
-		[SqlField(DbType.Int32, 4, Precision = 10, IsKey=true, ColumnName ="role_id" )]		
-		public RoleId RoleId 
-		{ 
-		    get { return _roleId; } 
-			set 
-			{
-			    _roleId = value;
-			}
-        }
-
-		private Int32 _permissionId;
-		[DataMember]
-		[SqlField(DbType.Int32, 4, Precision = 10, IsKey=true, ColumnName ="permission_id" )]		
-		public Int32 PermissionId 
-		{ 
-		    get { return _permissionId; } 
-			set 
-			{
-			    _permissionId = value;
-			}
-        }
-
-		private String _permissionName;
-		[DataMember]
-		[SqlField(DbType.AnsiString, 128, ColumnName ="permission_name" )]		
-		public String PermissionName 
-		{ 
-		    get { return _permissionName; } 
-			set 
-			{
-			    _permissionName = value;
-			}
-        }
-
-		private String _roleName;
-		[DataMember]
-		[SqlField(DbType.AnsiString, 128, ColumnName ="role_name" )]		
-		public String RoleName 
-		{ 
-		    get { return _roleName; } 
-			set 
-			{
-			    _roleName = value;
-			}
-        }
-
 		public const string BaseTableProjectionColumnList = "[user_id], [login_name], [user_name], [user_email], [is_active], [created_date], [created_by], [modified_date], [modified_by], [is_internal_user]";
 		public const string BasicProjectionColumnList = "[user_id], [login_name], [user_name], [user_email], [is_active], [user_password_hash], [user_password_salt], [user_password_expiration_date], [user_login_attemps], [created_date], [created_by], [modified_date], [modified_by], [assigned_task_email_enabled], [material_list_email_enabled], [updated_episode_email_enabled], [updated_booking_email_enabled], [cancel_booking], [complete_booking], [free_task], [generate_delivery_note], [generate_order], [include_hand_surgery], [include_material_requested], [include_material_used], [manage_reposition], [post_surgery_documentation], [update_booking], [finished_tasks_email_enabled], [cancel_booking_finished], [comment_added], [complete_booking_finished], [episode_cancelled], [free_task_finished], [generate_delivery_note_finished], [generate_order_finished], [include_hand_surgery_finished], [include_material_requested_finished], [include_material_used_finished], [intervention_date_changed], [manage_reposition_finished], [post_surgery_documentation_finished], [surgery_authorized], [update_booking_finished], [delivery_time_changed], [delivery_place_changed], [delivery_date_changed], [intervention_location_changed], [manage_special_authorization], [wi_comment_emails_enabled], [walking_implants_json], [last_first_order_field], [last_second_order_field], [is_descending], [is_second_descending]";
 		public const string ExtendedProjectionColumnList = "[user_name], [user_id], [is_active], [login_name], [user_email], [is_internal_user], [user_password_expiration_date], [created_date], [modified_date], [role_description], [wi_user_name]";
-		public const string MinimalProjectionColumnList = "[user_id], [login_name], [user_name], [user_email], [is_active], [user_password_expiration_date], [user_login_attemps], [created_date], [created_by], [modified_date], [modified_by]";
-		public const string PermissionBasicProjectionColumnList = "[user_id], [role_id], [permission_id], [permission_name], [role_name], [role_description]";
 
 	}
 
@@ -917,10 +867,6 @@ namespace WebApi.Entities
 		public const string IsSecondDescending = "IsSecondDescending";
 		public const string RoleDescription = "RoleDescription";
 		public const string WiUserName = "WiUserName";
-		public const string RoleId = "RoleId";
-		public const string PermissionId = "PermissionId";
-		public const string PermissionName = "PermissionName";
-		public const string RoleName = "RoleName";
 	}
 
 	public static partial class UserProjections
@@ -928,8 +874,6 @@ namespace WebApi.Entities
 		public const string BaseTable = "BaseTable";
 		public const string Basic = "Basic";
 		public const string Extended = "Extended";
-		public const string Minimal = "Minimal";
-		public const string PermissionBasic = "PermissionBasic";
 	}
 	[Serializable]
 	[DataContract]
@@ -1565,44 +1509,7 @@ namespace WebApi.Entities
 			}
         }
 
-		private String _typeName;
-		[DataMember]
-		[SqlField(DbType.AnsiString, 128, ColumnName ="type_name" )]		
-		public String TypeName 
-		{ 
-		    get { return _typeName; } 
-			set 
-			{
-			    _typeName = value;
-			}
-        }
-
-		private String _creatorName;
-		[DataMember]
-		[SqlField(DbType.AnsiString, 128, ColumnName ="creator_name" )]		
-		public String CreatorName 
-		{ 
-		    get { return _creatorName; } 
-			set 
-			{
-			    _creatorName = value;
-			}
-        }
-
-		private String _modifierName;
-		[DataMember]
-		[SqlField(DbType.AnsiString, 128, ColumnName ="modifier_name" )]		
-		public String ModifierName 
-		{ 
-		    get { return _modifierName; } 
-			set 
-			{
-			    _modifierName = value;
-			}
-        }
-
 		public const string BaseTableProjectionColumnList = "[master_item_id], [master_data_type_id], [master_item_name], [master_item_description], [created_date], [created_by], [modified_date], [modified_by], [is_active], [ordinal]";
-		public const string BasicProjectionColumnList = "[master_item_id], [master_data_type_id], [master_item_name], [master_item_description], [type_name], [created_date], [created_by], [modified_date], [modified_by], [creator_name], [modifier_name], [is_active]";
 
 	}
 
@@ -1705,15 +1612,11 @@ namespace WebApi.Entities
 		public const string ModifiedBy = "ModifiedBy";
 		public const string IsActive = "IsActive";
 		public const string Ordinal = "Ordinal";
-		public const string TypeName = "TypeName";
-		public const string CreatorName = "CreatorName";
-		public const string ModifierName = "ModifierName";
 	}
 
 	public static partial class MasterDataProjections
 	{
 		public const string BaseTable = "BaseTable";
-		public const string Basic = "Basic";
 	}
 	[Serializable]
 	[DataContract]
@@ -1971,26 +1874,14 @@ namespace WebApi.Entities
 	}
 }
 
-namespace WebApi.Entities
+namespace GarzonTrucksApi.Entities
 {
 	public enum RoleId
 	{
-		Administrator = 1,
-		Delegator = 2,
-		CustomerServiceStore = 3,
-		CustomerExcellence = 4,
-		Viewer = 5,
-		TotalAccess = 6,
-		CustomerServiceLoan = 7,
-		Rotary = 8,
-		Storage = 9,
-		ReverseEpisodeStatus = 10,
-		ViewAllWalkingImplants = 11,
-		ViewMyWalkingImplants = 12,
 	}
 }
 
-namespace WebApi.Entities
+namespace GarzonTrucksApi.Entities
 {
 	public partial class InsurancesDataService : DataService
 	{
@@ -2019,79 +1910,79 @@ namespace WebApi.Entities
 			Init();
         }
 
-		private WebApi.Entities.UserRepository _UserRepository;
-		public WebApi.Entities.UserRepository UserRepository
+		private GarzonTrucksApi.Entities.UserRepository _UserRepository;
+		public GarzonTrucksApi.Entities.UserRepository UserRepository
 		{
 			get 
 			{
 				if ( _UserRepository == null)
 				{
-					_UserRepository = new WebApi.Entities.UserRepository(this);
+					_UserRepository = new GarzonTrucksApi.Entities.UserRepository(this);
 				}
 				return _UserRepository;
 			}
 		}
 
-		private WebApi.Entities.UserPropertiesRepository _UserPropertiesRepository;
-		public WebApi.Entities.UserPropertiesRepository UserPropertiesRepository
+		private GarzonTrucksApi.Entities.UserPropertiesRepository _UserPropertiesRepository;
+		public GarzonTrucksApi.Entities.UserPropertiesRepository UserPropertiesRepository
 		{
 			get 
 			{
 				if ( _UserPropertiesRepository == null)
 				{
-					_UserPropertiesRepository = new WebApi.Entities.UserPropertiesRepository(this);
+					_UserPropertiesRepository = new GarzonTrucksApi.Entities.UserPropertiesRepository(this);
 				}
 				return _UserPropertiesRepository;
 			}
 		}
 
-		private WebApi.Entities.UserPasswordHistoryRepository _UserPasswordHistoryRepository;
-		public WebApi.Entities.UserPasswordHistoryRepository UserPasswordHistoryRepository
+		private GarzonTrucksApi.Entities.UserPasswordHistoryRepository _UserPasswordHistoryRepository;
+		public GarzonTrucksApi.Entities.UserPasswordHistoryRepository UserPasswordHistoryRepository
 		{
 			get 
 			{
 				if ( _UserPasswordHistoryRepository == null)
 				{
-					_UserPasswordHistoryRepository = new WebApi.Entities.UserPasswordHistoryRepository(this);
+					_UserPasswordHistoryRepository = new GarzonTrucksApi.Entities.UserPasswordHistoryRepository(this);
 				}
 				return _UserPasswordHistoryRepository;
 			}
 		}
 
-		private WebApi.Entities.MasterDataRepository _MasterDataRepository;
-		public WebApi.Entities.MasterDataRepository MasterDataRepository
+		private GarzonTrucksApi.Entities.MasterDataRepository _MasterDataRepository;
+		public GarzonTrucksApi.Entities.MasterDataRepository MasterDataRepository
 		{
 			get 
 			{
 				if ( _MasterDataRepository == null)
 				{
-					_MasterDataRepository = new WebApi.Entities.MasterDataRepository(this);
+					_MasterDataRepository = new GarzonTrucksApi.Entities.MasterDataRepository(this);
 				}
 				return _MasterDataRepository;
 			}
 		}
 
-		private WebApi.Entities.RoleRepository _RoleRepository;
-		public WebApi.Entities.RoleRepository RoleRepository
+		private GarzonTrucksApi.Entities.RoleRepository _RoleRepository;
+		public GarzonTrucksApi.Entities.RoleRepository RoleRepository
 		{
 			get 
 			{
 				if ( _RoleRepository == null)
 				{
-					_RoleRepository = new WebApi.Entities.RoleRepository(this);
+					_RoleRepository = new GarzonTrucksApi.Entities.RoleRepository(this);
 				}
 				return _RoleRepository;
 			}
 		}
 
-		private WebApi.Entities.UserRoleRepository _UserRoleRepository;
-		public WebApi.Entities.UserRoleRepository UserRoleRepository
+		private GarzonTrucksApi.Entities.UserRoleRepository _UserRoleRepository;
+		public GarzonTrucksApi.Entities.UserRoleRepository UserRoleRepository
 		{
 			get 
 			{
 				if ( _UserRoleRepository == null)
 				{
-					_UserRoleRepository = new WebApi.Entities.UserRoleRepository(this);
+					_UserRoleRepository = new GarzonTrucksApi.Entities.UserRoleRepository(this);
 				}
 				return _UserRoleRepository;
 			}

@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using WebApi.Entities;
+﻿using GarzonTrucksApi.Entities;
+using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Controllers
+namespace GarzonTrucksApi.Controllers
 {
     public class BaseController : Controller
     {

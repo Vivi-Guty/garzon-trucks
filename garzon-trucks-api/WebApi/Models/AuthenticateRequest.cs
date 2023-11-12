@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApi.Models
+namespace GarzonTrucksApi.Models
 {
     public class AuthenticateRequest
     {

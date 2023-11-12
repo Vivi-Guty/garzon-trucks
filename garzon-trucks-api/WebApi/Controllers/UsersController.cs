@@ -1,10 +1,10 @@
 ﻿using inercya.EntityLite;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Models;
-using WebApi.Services;
+using GarzonTrucksApi.Models;
+using GarzonTrucksApi.Services;
 
-namespace WebApi.Controllers
+namespace GarzonTrucksApi.Controllers
 {
     [ApiController]
     public class UsersController : BaseController

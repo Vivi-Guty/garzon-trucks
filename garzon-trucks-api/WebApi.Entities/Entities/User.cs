@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebApi.Entities
+namespace GarzonTrucksApi.Entities
 {
     public partial class User
     {
