@@ -15,7 +15,7 @@ var generationSettings = new TypeScriptGeneratorSettings
     TypeScriptVersion = 2.7m,
 };
 
-var modelsFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "angular", "src", "app", "models");
+var modelsFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "garzon-trucks-frontend", "src", "app", "models");
 
 var schemaGenerationSettings = new JsonSchemaGeneratorSettings
 {
