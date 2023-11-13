@@ -21,7 +21,4 @@ export interface MasterData {
     modifiedBy: number;
     isActive: boolean;
     ordinal: number | undefined;
-    typeName: string;
-    creatorName: string;
-    modifierName: string;
 }

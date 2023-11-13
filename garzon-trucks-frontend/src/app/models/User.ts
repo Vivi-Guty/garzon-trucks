@@ -10,6 +10,15 @@
 
 
 
+export interface UserRole {
+    userId: number;
+    roleId: number;
+    roleName: string;
+    roleDescription: string;
+    userName: string;
+    isActive: boolean;
+}
+
 export interface User {
     userId: number;
     loginName: string;
@@ -20,6 +29,7 @@ export interface User {
     createdBy: number;
     modifiedDate: Date;
     modifiedBy: number;
+    isInternalUser: boolean;
     userPasswordHash: string;
     userPasswordSalt: string;
     userPasswordExpirationDate: Date | undefined;
@@ -62,11 +72,12 @@ export interface User {
     manageSpecialAuthorization: boolean;
     wiCommentEmailsEnabled: string;
     walkingImplants: any;
+    lastFirstOrderField: string;
+    lastSecondOrderField: string;
+    isDescending: boolean | undefined;
+    isSecondDescending: boolean | undefined;
     roleDescription: string;
     wiUserName: string;
-    roleId: number;
-    permissionId: number;
-    permissionName: string;
-    roleName: string;
-    token: string;
+    token: string | undefined;
+    roles: UserRole[];
 }
